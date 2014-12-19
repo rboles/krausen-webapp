@@ -1,0 +1,39 @@
+.history
+dist
+/out
+/.idea_modules
+/.classpath
+/RUNNING_PID
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.settings
+
+# play-maven-plugin
+lib/
+
+# Emacs
+*~
+
+# Output Folders
+logs/
+tmp/
+data/
+target/
+project/project
+project/target
+dependency-reduced-pom.xml
+
+# Log Files
+*.log
+
+# MacOSX
+.DS_Store
+/.project
+
+

@@ -1,0 +1,31 @@
+<div class="row marketing">
+  <h4>Let's Make a Beer</h4>
+
+  <form name="brewDayForm" ng-submit="calculate()" class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="wortOG">Original gravity of wort</label>
+      <div class="controls">
+        <input ng-model="wortOG" class="input-sm" id="wortOG" focus required />
+      </div>
+
+      <label class="control-label" for="poundsGrain">Pounds of grain</label>
+      <div class="controls">
+        <input ng-model="poundsGrain" class="input-sm" id="poundsGrain" required />
+      </div>
+
+      <label class="control-label" for="mashTemperature">Mash temperature</label>
+      <div class="controls">
+        <input ng-model="mashTemperature" class="input-sm" id="mashTemperature" required />
+      </div>
+
+      <label class="control-label" for="hasStirPlate">Stir Plate</label>
+      <div class="controls">
+        <input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" ng-disabled="brewDayForm.$invalid">Calculate</button>
+    </div>
+  </form>
+</div>
