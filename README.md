@@ -28,10 +28,15 @@ Install dependencies:
 
 Install npm
 
+Install ruby
+
 ```
-npm install -g yo
-npm install -g grunt
-npm install -g bower
+sudo npm install -g yo
+sudo npm install -g grunt-cli
+sudo npm install -g bower
+sudo npm install -g generator-karma
+sudo npm install -g generator-angular
+sudo gem install compass
 ```
 
 Start play/sbt in the project folder
