@@ -1,31 +1,95 @@
-<div class="row marketing">
-  <h4>Let's Make a Beer</h4>
+<div>
+  <div class="row marketing">
+    <h4>Let's Make a Beer</h4>
 
-  <form name="brewDayForm" ng-submit="calculate()" class="form-horizontal">
-    <div class="control-group">
-      <label class="control-label" for="wortOG">Original gravity of wort</label>
-      <div class="controls">
-        <input ng-model="wortOG" class="input-sm" id="wortOG" focus required />
+    <form name="brewDayForm" ng-submit="calculate()" class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="wortOG">Original gravity of wort</label>
+        <div class="controls">
+          <input ng-model="wortOG" class="input-sm" id="wortOG" focus required />
+        </div>
+
+        <label class="control-label" for="poundsGrain">Pounds of grain</label>
+        <div class="controls">
+          <input ng-model="poundsGrain" class="input-sm" id="poundsGrain" required />
+        </div>
+
+        <label class="control-label" for="mashTemperature">Mash temperature</label>
+        <div class="controls">
+          <input ng-model="mashTemperature" class="input-sm" id="mashTemperature" required />
+        </div>
+
+        <label class="control-label" for="hasStirPlate">Stir Plate</label>
+        <div class="controls">
+          <input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" />
+        </div>
       </div>
-
-      <label class="control-label" for="poundsGrain">Pounds of grain</label>
-      <div class="controls">
-        <input ng-model="poundsGrain" class="input-sm" id="poundsGrain" required />
-      </div>
-
-      <label class="control-label" for="mashTemperature">Mash temperature</label>
-      <div class="controls">
-        <input ng-model="mashTemperature" class="input-sm" id="mashTemperature" required />
-      </div>
-
-      <label class="control-label" for="hasStirPlate">Stir Plate</label>
-      <div class="controls">
-        <input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" />
-      </div>
-    </div>
-
-    <div class="form-actions">
-      <button class="btn btn-primary" ng-disabled="brewDayForm.$invalid">Calculate</button>
-    </div>
-  </form>
+    </form>
+  </div>
+  <div class="row">
+    <h4>Yeast Starter</h4>
+    <p>
+      Original gravity: {{wortOG.toFixed(3)}} ({{calcPlato(wortOG)}} degrees Plato)
+    </p>
+    <ul>
+      <li>Starter volume: {{calcStarterVolume(wortOG, hasStirPlate)}} liters</li>
+      <li>Starter DME: {{calcStarterDme(wortOG, hasStirPlate)}} grams</li>
+    </ul>
+    <ol>
+      <li>
+        Add {{calcStarterDme(wortOG, hasStirPlate)}} grams DME and a pinch of
+        yeast nutrient to boiling vessel
+      </li>
+      <li>
+        Fill vessel to {{calcStarterVolume(wortOG, hasStirPlate)}} liters and
+        boil gently for 15 minutes
+      </li>
+      <li>
+        Let cool to 70 dF and pitch yeast
+      </li>
+      <li ng-if="hasStirPlate">
+        Add stir bar, cover flask opening with clean tin foil and aerate on
+        stir plate for 18 to 24 hours
+      </li>
+      <li>
+        When the starter is ready, put it in the fridge for 24 hours to let
+        the yeast rest and settle.
+      </li>
+      <li>
+        Pour off extra liquid above yeast cake before pitching.
+      </li>
+    </ol>
+    <h4>Brew Water</h4>
+    <p>
+      Pounds of grain: {{poundsGrain}}
+    </p>
+    <p>
+      Mash temperature: {{mashTemperature}}
+    </p>
+    <ul>
+      <li>Strike water ({{mashTemperature + 10}} dF): {{calcStrikeWaterVolume(poundsGrain)}} gallons</li>
+      <li>Pre-lauter (180 dF): {{calcPreLauterVolume(boilVolume, poundsGrain, waterAbsorptionRatio)}} gallons</li>
+      <li>Sparge water (180 dF): {{calcSpargeWaterVolume(boilVolume)}} gallons</li>
+    </ul>
+    <ol>
+      <li>
+        Heat {{calcStrikeWaterVolume(poundsGrain)}} gallons of water
+        to ({{mashTemperature + 10}} dF. Pour into mash tun.
+      </li>
+      <li>
+        Add grain, stir and cover. Mash for 60 to 90 minutes.
+      </li>
+      <li>
+        Heat {{calcPreLauterVolume(boilVolume, poundsGrain, waterAbsorptionRatio)}} gallons
+        water to 180 dF. Add to mash, stir, wait 20 minutes, vorlauf, drain.
+      </li>
+      <li>
+        Heat {{calcSpargeWaterVolume(boilVolume)}} gallons water to 180 dF.
+        Add to mash, stir, wait 20 minutes, vorlauf, drain.
+      </li>
+      <li>
+        Boil kettle should contain {{boilVolume}} gallon liquor.
+      </li>
+    </ol>
+  </div>
 </div>

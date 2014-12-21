@@ -31,6 +31,10 @@ angular
         templateUrl: 'views/brew.html',
         controller: 'BrewCtrl'
       })
+      .when('/hops', {
+        templateUrl: 'views/hops.html',
+        controller: 'HopCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

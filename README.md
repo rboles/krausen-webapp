@@ -76,6 +76,14 @@ application.
     ]);
 ```
 
+Run npm and bower locally
+
+```
+cd ui
+npm install
+bower install
+```
+
 Run the application
 
 ```
