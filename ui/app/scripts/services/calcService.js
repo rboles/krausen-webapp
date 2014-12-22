@@ -20,12 +20,12 @@ angular.module('uiApp.calcService', []).
      * @param temp Temperature
      */
     calcGravityTemperatureAdjust: function(g, t) {
-      return ((t - 60) / 10 * 0.003) + g;
+      return g + ((t - 60) / 10 * 0.003);
     },
 
     /**
      * Calculate ABV using the Daniels equation. This equation is
-     * considered by some to be more accurate for beers under 1.775.
+     * more frequently used for high gravity beers.
      * Don't forget to adjust your gravity for temperature
      * @param og Original gravity
      * @param fg Final gravity
@@ -35,7 +35,8 @@ angular.module('uiApp.calcService', []).
     },
 
     /**
-     * Calculate ABV using the Papazian equation.
+     * Calculate ABV using the Papazian equation. This is the most
+     * common ABV equation.
      * Don't forget to adjust your gravity for temperature
      * @param og Original gravity
      * @param fg Final gravity

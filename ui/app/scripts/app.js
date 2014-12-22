@@ -36,6 +36,10 @@ angular
         templateUrl: 'views/hops.html',
         controller: 'HopCtrl'
       })
+      .when('/tools', {
+        templateUrl: 'views/tools.html',
+        controller: 'ToolsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

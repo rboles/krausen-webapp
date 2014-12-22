@@ -1,0 +1,41 @@
+<div>
+  <div class="row marketing">
+    <h4>Alcohol By Volume</h4>
+    <form name="brewDayForm" ng-controller="AbvCalcCtrl" class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="og">Original Gravity</label>
+        <div class="controls">
+          <input ng-model="og" class="input-sm" style="width:80px;" id="og" focus required />
+          <span> <strong>at</strong> </span>
+          <select ng-model="ogTemp" class="input-select" id="ogTemp" required>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+            <option value="65">65</option>
+          </select>
+        </div>
+
+        <label class="control-label" for="fg">Final Gravity</label>
+        <div class="controls">
+          <input ng-model="fg" class="input-sm" style="width:80px;" id="fg" required />
+          <span> <strong>at</strong> </span>
+          <select ng-model="fgTemp" class="input-select" id="fgTemp" required>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+            <option value="65">65</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="control-label" for="abv">ABV</label>
+          <span id="abv">{{abv()}}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
