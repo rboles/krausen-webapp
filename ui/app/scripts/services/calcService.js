@@ -98,6 +98,16 @@ angular.module('uiApp.calcService', []).
     },
 
     /**
+     * Calculates a suggested temperature for strike water. This is usually 10
+     * degrees over the desired mash temp
+     * @param mashTemp Mash temperature
+     * @returns Suggested strike water temperature
+     */
+    calcStrikeWaterTemperature: function(mashTemp) {
+      return mashTemp + 10;
+    },
+
+    /**
      * Calculates a suggested volume of pre-lauter water.
      * @param boilVolume Desired volume in the boil kettle
      * @param lbsGrain Pounds of grain in the mash

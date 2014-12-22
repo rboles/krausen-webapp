@@ -29,20 +29,20 @@
   <div class="row">
     <h4>Yeast Starter</h4>
     <p>
-      Original gravity: {{og.toFixed(3)}}
-      ({{degreesPlato()}} degrees Plato)
+      Original gravity: {{getOg()}}
+      ({{getDegreesPlato()}} degrees Plato)
     </p>
     <ul>
-      <li>Starter volume: {{starterVolume()}} liters</li>
-      <li>Starter DME: {{starterDme()}} grams</li>
+      <li>Starter volume: {{getStarterVolume()}} liters</li>
+      <li>Starter DME: {{getStarterDme()}} grams</li>
     </ul>
     <ol>
       <li>
-        Add {{starterDme()}} grams DME and a pinch of
+        Add {{getStarterDme()}} grams DME and a pinch of
         yeast nutrient to boiling vessel
       </li>
       <li>
-        Fill vessel to {{starterVolume()}} liters. Boil gently for 15 minutes
+        Fill vessel to {{getStarterVolume()}} liters. Boil gently for 15 minutes
       </li>
       <li>
         Let cool to 70 dF and pitch yeast
@@ -61,34 +61,34 @@
     </ol>
     <h4>Brew Water</h4>
     <p>
-      Pounds of grain: {{poundsGrain}}
+      Pounds of grain: {{getPoundsGrain()}}
     </p>
     <p>
       Mash temperature: {{mashTemperature}}
     </p>
     <ul>
-      <li>Strike water ({{mashTemperature + 10}} dF): {{strikeWaterVolume()}} gallons</li>
-      <li>Pre-lauter (180 dF): {{preLauterVolume()}} gallons</li>
-      <li>Sparge water (180 dF): {{spargeWaterVolume()}} gallons</li>
+      <li>Strike water ({{getStrikeWaterTemperature()}} dF): {{getStrikeWaterVolume()}} gallons</li>
+      <li>Pre-lauter (180 dF): {{getPreLauterVolume()}} gallons</li>
+      <li>Sparge water (180 dF): {{getSpargeWaterVolume()}} gallons</li>
     </ul>
     <ol>
       <li>
-        Heat {{strikeWaterVolume()}} gallons of water
-        to {{mashTemperature + 10}} dF. Pour into mash tun.
+        Heat {{getStrikeWaterVolume()}} gallons of water
+        to {{getStrikeWaterTemperature()}} dF. Pour into mash tun.
       </li>
       <li>
         Add grain, stir and cover. Mash for 60 to 90 minutes.
       </li>
       <li>
-        Heat {{preLauterVolume()}} gallons water to 180 dF.
+        Heat {{getPreLauterVolume()}} gallons water to 180 dF.
         Add to mash, stir, wait 20 minutes, vorlauf, drain.
       </li>
       <li>
-        Heat {{spargeWaterVolume()}} gallons water to 180 dF.
+        Heat {{getSpargeWaterVolume()}} gallons water to 180 dF.
         Add to mash, stir, wait 20 minutes, vorlauf, drain.
       </li>
       <li>
-        Boil kettle should contain {{boilVolume}} gallon liquor.
+        Boil kettle should contain {{getBoilVolume()}} gallons liquor.
       </li>
     </ol>
   </div>

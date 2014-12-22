@@ -9,37 +9,64 @@
  */
 angular.module('uiApp')
   .controller('BrewCtrl', function ($scope, CalcService) {
-    $scope.boilVolume = 7;
+    $scope.boilVolume = 7.0;
     $scope.waterAbsorptionRatio = 0.2;
     $scope.kettleCorrection = 0.2;
 
-    $scope.poundsGrain = 14;
+    $scope.poundsGrain = 14.0;
     $scope.mashTemperature = 154;
     $scope.hasStirPlate = true;
     $scope.og = 1.064;
 
-    $scope.degreesPlato = function() {
-      return CalcService.calcPlato($scope.og).toFixed(1);
+    $scope.getOg = function() {
+      var og = parseFloat($scope.og);
+      return og.toFixed(3);
     };
 
-    $scope.starterVolume = function() {
-      return CalcService.calcStarterVolume($scope.og, $scope.hasStirPlate).toFixed(1);
+    $scope.getDegreesPlato = function() {
+      return CalcService.calcPlato($scope.og).toFixed(2);
     };
 
-    $scope.starterDme = function() {
-      return CalcService.calcStarterDme($scope.og, $scope.hasStirPlate).toFixed(1);
+    $scope.getBoilVolume = function() {
+      var boilVolume = parseFloat($scope.boilVolume);
+      return boilVolume.toFixed(2);
     };
 
-    $scope.strikeWaterVolume = function() {
-      return CalcService.calcStrikeWaterVolume($scope.poundsGrain).toFixed(2);
+    $scope.getPoundsGrain = function() {
+      var poundsGrain = parseFloat($scope.poundsGrain);
+      return poundsGrain.toFixed(2);
     };
 
-    $scope.preLauterVolume = function() {
-      return CalcService.calcPreLauterVolume($scope.boilVolume, $scope.poundsGrain, $scope.waterAbsorptionRatio).toFixed(2);
+    $scope.getStarterVolume = function() {
+      var og = parseFloat($scope.og);
+      return CalcService.calcStarterVolume(og, $scope.hasStirPlate).toFixed(2);
     };
 
-    $scope.spargeWaterVolume = function() {
-      return CalcService.calcSpargeWaterVolume($scope.boilVolume).toFixed(2);
+    $scope.getStarterDme = function() {
+      var og = parseFloat($scope.og);
+      return CalcService.calcStarterDme(og, $scope.hasStirPlate).toFixed(2);
+    };
+
+    $scope.getStrikeWaterVolume = function() {
+      var poundsGrain = parseInt($scope.poundsGrain);
+      return CalcService.calcStrikeWaterVolume(poundsGrain).toFixed(2);
+    };
+
+    $scope.getStrikeWaterTemperature = function() {
+      var mashTemperature = parseInt($scope.mashTemperature);
+      return CalcService.calcStrikeWaterTemperature(mashTemperature);
+    };
+
+    $scope.getPreLauterVolume = function() {
+      var boilVolume = parseFloat($scope.boilVolume);
+      var poundsGrain = parseFloat($scope.poundsGrain);
+      var waterAbsorptionRatio = parseFloat($scope.waterAbsorptionRatio);
+      return CalcService.calcPreLauterVolume(boilVolume, poundsGrain, waterAbsorptionRatio).toFixed(2);
+    };
+
+    $scope.getSpargeWaterVolume = function() {
+      var boilVolume = parseInt($scope.boilVolume);
+      return CalcService.calcSpargeWaterVolume(boilVolume).toFixed(2);
     };
 
   });
