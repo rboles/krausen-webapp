@@ -4,9 +4,9 @@
 
     <form name="brewDayForm" ng-submit="calculate()" class="form-horizontal">
       <div class="control-group">
-        <label class="control-label" for="wortOG">Original gravity of wort</label>
+        <label class="control-label" for="og">Original gravity of wort</label>
         <div class="controls">
-          <input ng-model="wortOG" class="input-sm" id="wortOG" focus required />
+          <input ng-model="og" class="input-sm" id="og" focus required />
         </div>
 
         <label class="control-label" for="poundsGrain">Pounds of grain</label>
@@ -29,20 +29,20 @@
   <div class="row">
     <h4>Yeast Starter</h4>
     <p>
-      Original gravity: {{wortOG.toFixed(3)}} ({{calcPlato(wortOG)}} degrees Plato)
+      Original gravity: {{og.toFixed(3)}}
+      ({{degreesPlato()}} degrees Plato)
     </p>
     <ul>
-      <li>Starter volume: {{calcStarterVolume(wortOG, hasStirPlate)}} liters</li>
-      <li>Starter DME: {{calcStarterDme(wortOG, hasStirPlate)}} grams</li>
+      <li>Starter volume: {{starterVolume()}} liters</li>
+      <li>Starter DME: {{starterDme()}} grams</li>
     </ul>
     <ol>
       <li>
-        Add {{calcStarterDme(wortOG, hasStirPlate)}} grams DME and a pinch of
+        Add {{starterDme()}} grams DME and a pinch of
         yeast nutrient to boiling vessel
       </li>
       <li>
-        Fill vessel to {{calcStarterVolume(wortOG, hasStirPlate)}} liters and
-        boil gently for 15 minutes
+        Fill vessel to {{starterVolume()}} liters. Boil gently for 15 minutes
       </li>
       <li>
         Let cool to 70 dF and pitch yeast
@@ -67,24 +67,24 @@
       Mash temperature: {{mashTemperature}}
     </p>
     <ul>
-      <li>Strike water ({{mashTemperature + 10}} dF): {{calcStrikeWaterVolume(poundsGrain)}} gallons</li>
-      <li>Pre-lauter (180 dF): {{calcPreLauterVolume(boilVolume, poundsGrain, waterAbsorptionRatio)}} gallons</li>
-      <li>Sparge water (180 dF): {{calcSpargeWaterVolume(boilVolume)}} gallons</li>
+      <li>Strike water ({{mashTemperature + 10}} dF): {{strikeWaterVolume()}} gallons</li>
+      <li>Pre-lauter (180 dF): {{preLauterVolume()}} gallons</li>
+      <li>Sparge water (180 dF): {{spargeWaterVolume()}} gallons</li>
     </ul>
     <ol>
       <li>
-        Heat {{calcStrikeWaterVolume(poundsGrain)}} gallons of water
-        to ({{mashTemperature + 10}} dF. Pour into mash tun.
+        Heat {{strikeWaterVolume()}} gallons of water
+        to {{mashTemperature + 10}} dF. Pour into mash tun.
       </li>
       <li>
         Add grain, stir and cover. Mash for 60 to 90 minutes.
       </li>
       <li>
-        Heat {{calcPreLauterVolume(boilVolume, poundsGrain, waterAbsorptionRatio)}} gallons
-        water to 180 dF. Add to mash, stir, wait 20 minutes, vorlauf, drain.
+        Heat {{preLauterVolume()}} gallons water to 180 dF.
+        Add to mash, stir, wait 20 minutes, vorlauf, drain.
       </li>
       <li>
-        Heat {{calcSpargeWaterVolume(boilVolume)}} gallons water to 180 dF.
+        Heat {{spargeWaterVolume()}} gallons water to 180 dF.
         Add to mash, stir, wait 20 minutes, vorlauf, drain.
       </li>
       <li>

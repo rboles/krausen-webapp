@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'uiApp.calcService'
   ])
   .config(function ($routeProvider) {
     $routeProvider
