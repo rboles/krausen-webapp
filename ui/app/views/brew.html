@@ -1,29 +1,26 @@
-<div>
+<div class="brew-day">
   <div class="row marketing">
     <h4>Let's Make a Beer</h4>
 
-    <form name="brewDayForm" ng-submit="calculate()" class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label" for="og">Original gravity of wort</label>
-        <div class="controls">
-          <input ng-model="og" class="input-sm" id="og" focus required />
-        </div>
-
-        <label class="control-label" for="poundsGrain">Pounds of grain</label>
-        <div class="controls">
-          <input ng-model="poundsGrain" class="input-sm" id="poundsGrain" required />
-        </div>
-
-        <label class="control-label" for="mashTemperature">Mash temperature</label>
-        <div class="controls">
-          <input ng-model="mashTemperature" class="input-sm" id="mashTemperature" required />
-        </div>
-
-        <label class="control-label" for="hasStirPlate">Stir Plate</label>
-        <div class="controls">
-          <input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" />
-        </div>
-      </div>
+    <form name="brewDayForm" class="form-horizontal">
+      <table cellpadding="2" cellspacing="2">
+        <tr>
+          <td><label class="control-label" for="og">Original gravity</label></td>
+          <td><input ng-model="og" class="input-sm" style="width:80px;" id="og" focus required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="poundsGrain">Pounds of grain</label></td>
+          <td><input ng-model="poundsGrain" class="input-sm" style="width:80px;" id="poundsGrain" required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="mashTemperature">Mash temperature</label></td>
+          <td><input ng-model="mashTemperature" class="input-sm" style="width:80px;" id="mashTemperature" required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="hasStirPlate">Stir Plate</label></td>
+          <td><input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" /></td>
+        </tr>
+      </table>
     </form>
   </div>
   <div class="row">
