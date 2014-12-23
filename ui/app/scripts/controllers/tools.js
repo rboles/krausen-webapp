@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name uiApp.controller:ToolsCtrl
+ * @name krausenApp.controller:ToolsCtrl
  * @description
  * # ToolsCtrl
  * Controller for tools view
  */
-angular.module('uiApp')
+angular.module('krausenApp')
   .controller('ToolsCtrl', function ($scope) {
 });
 
-angular.module('uiApp')
+angular.module('krausenApp')
   .controller('AbvCalcCtrl', function ($scope, CalcService) {
     $scope.og = 1.060;
     $scope.fg = 1.010;

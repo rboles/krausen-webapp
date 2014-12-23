@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('uiApp.calcService', []).
+angular.module('krausenApp.calcService', []).
   factory('CalcService', function() {
   return {
 

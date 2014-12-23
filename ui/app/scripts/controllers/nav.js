@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name uiApp.controller:NavCtrl
+ * @name krausenApp.controller:NavCtrl
  * @description
  * # NavCtrl
  * Controller for navigation widgets
  */
-angular.module('uiApp')
+angular.module('krausenApp')
   .controller('NavCtrl', function ($scope, $location) {
     $scope.isActive = function(viewLocation) {
       return viewLocation === $location.path();

@@ -2,21 +2,21 @@
 
 /**
  * @ngdoc overview
- * @name uiApp
+ * @name krausenApp
  * @description
- * # uiApp
+ * # krausenApp
  *
  * Main module of the application.
  */
 angular
-  .module('uiApp', [
+  .module('krausenApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'uiApp.calcService'
+    'krausenApp.calcService'
   ])
   .config(function ($routeProvider) {
     $routeProvider

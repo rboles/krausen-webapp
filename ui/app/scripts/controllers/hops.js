@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name uiApp.controller:HopCtrl
+ * @name krausenApp.controller:HopCtrl
  * @description
  * # HopCtrl
  * Controller for hops view
  */
-angular.module('uiApp')
+angular.module('krausenApp')
   .controller('HopCtrl', function ($scope) {
 
 });

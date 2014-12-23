@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name uiApp.controller:BrewCtrl
+ * @name krausenApp.controller:BrewCtrl
  * @description
  * # BrewCtrl
  * Controller for brew day
  */
-angular.module('uiApp')
+angular.module('krausenApp')
   .controller('BrewCtrl', function ($scope, CalcService) {
     $scope.boilVolume = 7.0;
     $scope.waterAbsorptionRatio = 0.2;
